@@ -5,23 +5,13 @@ import PyPDF2
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
-# Load model and vectorizer
+# Load model, vectorizer, and centroids
 model = joblib.load('ats_nb_model.pkl')
 vectorizer = joblib.load('ats_vectorizer.pkl')
+centroids = joblib.load('category_centroids.pkl')
 
-# Categories list (based on your dataset)
-resume_categories = [
-    'Java Developer', 'Testing', 'DevOps Engineer', 'Python Developer',
-    'Web Designing', 'HR', 'Hadoop', 'Sales', 'Data Science',
-    'Mechanical Engineer', 'ETL Developer', 'Blockchain', 'Operations Manager',
-    'Arts', 'Database', 'Health and fitness', 'PMO', 'Electrical Engineering',
-    'Business Analyst', 'DotNet Developer', 'Automation Testing',
-    'Network Security Engineer', 'Civil Engineer', 'SAP Developer', 'Advocate'
-]
-
-# Sample texts per category (for similarity check)
-# In production, replace this with actual averaged resume texts or TF-IDF vectors per category
-category_samples = {cat: f"This is a sample {cat} resume with relevant keywords and experience." for cat in resume_categories}
+# Dynamically get the list of categories from centroids
+resume_categories = list(centroids.keys())
 
 # Helper functions
 def clean_text(text):
@@ -38,9 +28,12 @@ def extract_text_from_pdf(pdf_file):
     return text
 
 def calculate_similarity(user_input, selected_category):
-    user_vec = vectorizer.transform([user_input])
-    category_vec = vectorizer.transform([category_samples[selected_category]])
-    similarity = cosine_similarity(user_vec, category_vec)[0][0]
+    if selected_category not in centroids:
+        return None  # Category not found
+    cleaned_input = clean_text(user_input)
+    user_vec = vectorizer.transform([cleaned_input]).toarray()
+    centroid_vec = centroids[selected_category].reshape(1, -1)
+    similarity = cosine_similarity(user_vec, centroid_vec)[0][0]
     return round(similarity * 100, 2)
 
 # Streamlit UI
@@ -90,8 +83,10 @@ with tab3:
         source_text = pasted_text.strip()
 
     if selected_category and source_text:
-        cleaned = clean_text(source_text)
-        match_score = calculate_similarity(cleaned, selected_category)
-        st.success(f"📈 Resume matches **{selected_category}** with a score of: **{match_score}%**")
+        match_score = calculate_similarity(source_text, selected_category)
+        if match_score is not None:
+            st.success(f"📈 Resume matches **{selected_category}** with a score of: **{match_score}%**")
+        else:
+            st.error(f"Selected category '{selected_category}' not found in training data.")
     elif not selected_category:
         st.info("Select a job category to match against.")
