@@ -1,60 +1,52 @@
 import streamlit as st
-import PyPDF2
+import joblib
 import re
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+import PyPDF2
 
-# Clean text function
+# Load model & vectorizer
+model = joblib.load('ats_nb_model.pkl')
+vectorizer = joblib.load('ats_vectorizer.pkl')
+
+# Clean text
 def clean_text(text):
     text = re.sub(r'<[^>]+>', ' ', text)
     text = re.sub(r'[^a-zA-Z]', ' ', text)
     text = text.lower().split()
     return ' '.join(text)
 
-# Extract PDF resume text
+# Extract text from PDF
 def extract_text_from_pdf(pdf_file):
     text = ""
     reader = PyPDF2.PdfReader(pdf_file)
     for page in reader.pages:
-        page_text = page.extract_text()
-        if page_text:
-            text += page_text
+        text += page.extract_text()
     return text
 
-# Matching logic
-def get_match_score(resume_text, job_desc):
-    cleaned_resume = clean_text(resume_text)
-    cleaned_jd = clean_text(job_desc)
-
-    vectorizer = TfidfVectorizer()
-    tfidf_matrix = vectorizer.fit_transform([cleaned_resume, cleaned_jd])
-
-    similarity = cosine_similarity(tfidf_matrix[0:1], tfidf_matrix[1:2])[0][0]
-    return round(similarity * 100, 2)
-
 # Streamlit UI
-st.title("🧠 ATS Resume Match Checker")
-st.write("Upload your resume to see if it matches your job title or description (optional).")
+st.title("📄 ATS Resume Category Predictor")
+st.markdown("Upload a resume PDF or paste job description to get the predicted category.")
 
-# Optional job title
-job_input = st.text_input("💼 Enter the Job Title or Job Description (Optional)")
+# Tabs for options
+tab1, tab2 = st.tabs(["📤 Upload Resume", "✍️ Paste Job Description"])
 
-# Required resume upload
-uploaded_pdf = st.file_uploader("📄 Upload your Resume PDF", type=['pdf'])
+# 📤 Resume Upload Tab
+with tab1:
+    uploaded_pdf = st.file_uploader("Upload your resume PDF file", type=['pdf'])
+    if uploaded_pdf is not None:
+        extracted = extract_text_from_pdf(uploaded_pdf)
+        cleaned = clean_text(extracted)
+        vectorized = vectorizer.transform([cleaned]).toarray()
+        prediction = model.predict(vectorized)[0]
+        st.success(f"🧠 Predicted Resume Category: **{prediction}**")
 
-if st.button("🔍 Analyze"):
-    if uploaded_pdf is None:
-        st.warning("Please upload your resume to proceed.")
-    else:
-        resume_text = extract_text_from_pdf(uploaded_pdf)
-        st.success("✅ Resume uploaded and extracted successfully.")
-        
-        if job_input.strip() != "":
-            match_score = get_match_score(resume_text, job_input)
-            st.markdown(f"### 📊 Match Score: **{match_score}%**")
-            if match_score >= 60:
-                st.success("✅ Good Match! Your resume aligns well with the job.")
-            else:
-                st.error("❌ Not a strong match. Consider tailoring your resume.")
+# ✍️ Paste Job Description Tab
+with tab2:
+    jd_text = st.text_area("Paste Job Description here")
+    if st.button("Predict Category from JD"):
+        if jd_text.strip() == "":
+            st.warning("Please enter a job description.")
         else:
-            st.info("ℹ️ No job title/description entered, so match score is not calculated.")
+            cleaned = clean_text(jd_text)
+            vectorized = vectorizer.transform([cleaned]).toarray()
+            prediction = model.predict(vectorized)[0]
+            st.success(f"🧠 Predicted JD Category: **{prediction}**")
