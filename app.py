@@ -2,61 +2,68 @@ import streamlit as st
 import joblib
 import re
 import PyPDF2
-from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
 
-# Load model & vectorizer
+# Load model and vectorizer
 model = joblib.load('ats_nb_model.pkl')
 vectorizer = joblib.load('ats_vectorizer.pkl')
 
-# Clean text
+# Categories list (based on your dataset)
+resume_categories = [
+    'Java Developer', 'Testing', 'DevOps Engineer', 'Python Developer',
+    'Web Designing', 'HR', 'Hadoop', 'Sales', 'Data Science',
+    'Mechanical Engineer', 'ETL Developer', 'Blockchain', 'Operations Manager',
+    'Arts', 'Database', 'Health and fitness', 'PMO', 'Electrical Engineering',
+    'Business Analyst', 'DotNet Developer', 'Automation Testing',
+    'Network Security Engineer', 'Civil Engineer', 'SAP Developer', 'Advocate'
+]
+
+# Sample texts per category (for similarity check)
+# In production, replace this with actual averaged resume texts or TF-IDF vectors per category
+category_samples = {cat: f"This is a sample {cat} resume with relevant keywords and experience." for cat in resume_categories}
+
+# Helper functions
 def clean_text(text):
     text = re.sub(r'<[^>]+>', ' ', text)
     text = re.sub(r'[^a-zA-Z]', ' ', text)
     text = text.lower().split()
     return ' '.join(text)
 
-# Extract text from PDF
 def extract_text_from_pdf(pdf_file):
     text = ""
     reader = PyPDF2.PdfReader(pdf_file)
     for page in reader.pages:
-        page_text = page.extract_text()
-        if page_text:
-            text += page_text
+        text += page.extract_text()
     return text
 
-# Match score
-def get_match_score(resume_text, job_text):
-    cleaned_resume = clean_text(resume_text)
-    cleaned_jd = clean_text(job_text)
+def calculate_similarity(user_input, selected_category):
+    user_vec = vectorizer.transform([user_input])
+    category_vec = vectorizer.transform([category_samples[selected_category]])
+    similarity = cosine_similarity(user_vec, category_vec)[0][0]
+    return round(similarity * 100, 2)
 
-    tfidf = TfidfVectorizer()
-    vectors = tfidf.fit_transform([cleaned_resume, cleaned_jd])
-    score = cosine_similarity(vectors[0:1], vectors[1:2])[0][0]
-    return round(score * 100, 2)
-
-# UI
-st.title("📄 ATS Resume Category Predictor")
-st.markdown("Upload a resume or paste job description to predict the category, or check resume-job match score.")
+# Streamlit UI
+st.title("📄 ATS Resume Category Checker")
+st.markdown("Upload a resume or paste a job description to analyze and match it with job categories.")
 
 # Tabs
-tab1, tab2, tab3 = st.tabs(["📤 Upload Resume", "✍️ Paste Job Description", "🧪 Match Resume with Job Description"])
+tab1, tab2, tab3 = st.tabs(["📤 Upload Resume", "✍️ Paste Job Description", "📊 Resume vs Job Category"])
 
-# --- Tab 1: Resume Upload
+# 📤 Upload Resume Tab
 with tab1:
-    uploaded_pdf = st.file_uploader("Upload your resume PDF file", type=['pdf'], key="resume_tab1")
-    if uploaded_pdf:
+    uploaded_pdf = st.file_uploader("Upload your resume PDF file", type=['pdf'])
+    if uploaded_pdf is not None:
         extracted = extract_text_from_pdf(uploaded_pdf)
         cleaned = clean_text(extracted)
         vectorized = vectorizer.transform([cleaned]).toarray()
         prediction = model.predict(vectorized)[0]
         st.success(f"🧠 Predicted Resume Category: **{prediction}**")
 
-# --- Tab 2: JD Input
+# ✍️ Paste Job Description Tab
 with tab2:
-    jd_text = st.text_area("Paste Job Description here", key="jd_tab2")
-    if st.button("Predict Category from JD", key="predict_jd_btn"):
+    jd_text = st.text_area("Paste Job Description here")
+    if st.button("Predict Category from JD"):
         if jd_text.strip() == "":
             st.warning("Please enter a job description.")
         else:
@@ -65,24 +72,26 @@ with tab2:
             prediction = model.predict(vectorized)[0]
             st.success(f"🧠 Predicted JD Category: **{prediction}**")
 
-# --- Tab 3: Match Score
+# 📊 Category Match Score Tab
 with tab3:
-    st.write("Upload your resume and paste a job description to check how well they match.")
-    match_pdf = st.file_uploader("Upload Resume PDF", type=['pdf'], key="resume_tab3")
-    match_jd = st.text_area("Paste Job Description (optional)", key="jd_tab3")
+    st.markdown("### Upload Resume or Paste Description to Match Against Selected Category")
+    selected_category = st.selectbox("Select Job Category to Match", options=[""] + resume_categories)
+    source_text = ""
 
-    if st.button("Check Match Score", key="match_btn"):
-        if match_pdf is None:
-            st.warning("Please upload a resume to check match.")
-        else:
-            resume_text = extract_text_from_pdf(match_pdf)
-            if match_jd.strip() == "":
-                st.info("Job description not provided. Showing resume text only.")
-                st.success("✅ Resume uploaded successfully, but no JD to match with.")
-            else:
-                score = get_match_score(resume_text, match_jd)
-                st.markdown(f"### 🔍 Match Score: **{score}%**")
-                if score >= 60:
-                    st.success("✅ Good match with the job description!")
-                else:
-                    st.error("❌ Resume does not align well with the job description.")
+    col1, col2 = st.columns(2)
+    with col1:
+        uploaded_resume = st.file_uploader("Upload Resume for Matching", type=['pdf'], key='match_pdf')
+        if uploaded_resume:
+            source_text = extract_text_from_pdf(uploaded_resume)
+    with col2:
+        pasted_text = st.text_area("Or Paste Resume/Description Here", key="match_text")
+
+    if pasted_text.strip() and not source_text:
+        source_text = pasted_text.strip()
+
+    if selected_category and source_text:
+        cleaned = clean_text(source_text)
+        match_score = calculate_similarity(cleaned, selected_category)
+        st.success(f"📈 Resume matches **{selected_category}** with a score of: **{match_score}%**")
+    elif not selected_category:
+        st.info("Select a job category to match against.")
