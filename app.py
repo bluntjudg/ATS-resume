@@ -1,52 +1,117 @@
 import streamlit as st
-import joblib
+import pandas as pd
 import re
-import PyPDF2
+from sklearn.metrics.pairwise import cosine_similarity
+from PyPDF2 import PdfReader
+import joblib
 
-# Load model & vectorizer
-model = joblib.load('ats_nb_model.pkl')
-vectorizer = joblib.load('ats_vectorizer.pkl')
-
-# Clean text
+# ---------- Resume Cleaning Function ----------
 def clean_text(text):
-    text = re.sub(r'<[^>]+>', ' ', text)
-    text = re.sub(r'[^a-zA-Z]', ' ', text)
-    text = text.lower().split()
-    return ' '.join(text)
+    text = re.sub(r"http\S+|www\S+|https\S+", '', str(text))
+    text = re.sub(r'\@w+|\#', '', text)
+    text = re.sub(r'[^A-Za-z\s]', '', text)
+    text = text.lower()
+    return text
 
-# Extract text from PDF
-def extract_text_from_pdf(pdf_file):
+# ---------- Load CSV Dataset ----------
+@st.cache_data
+def load_data():
+    df = pd.read_csv("resume_data.csv")
+    df['Cleaned_Resume'] = df['Resume'].apply(clean_text)
+    return df
+
+# ---------- Extract Text from PDF ----------
+def extract_text_from_pdf(file):
+    reader = PdfReader(file)
     text = ""
-    reader = PyPDF2.PdfReader(pdf_file)
     for page in reader.pages:
         text += page.extract_text()
     return text
 
-# Streamlit UI
-st.title("📄 ATS Resume Category Predictor")
-st.markdown("Upload a resume PDF or paste job description to get the predicted category.")
+# ---------- Calculate Similarity Score ----------
+def calculate_score(user_resume, category_resumes, vectorizer):
+    all_resumes = category_resumes + [user_resume]
+    tfidf_matrix = vectorizer.fit_transform(all_resumes)
+    similarity_matrix = cosine_similarity(tfidf_matrix[-1], tfidf_matrix[:-1])
+    score = similarity_matrix.max() * 100
+    return round(score, 2)
 
-# Tabs for options
-tab1, tab2 = st.tabs(["📤 Upload Resume", "✍️ Paste Job Description"])
+# ---------- Load Everything ----------
+df = load_data()
 
-# 📤 Resume Upload Tab
-with tab1:
-    uploaded_pdf = st.file_uploader("Upload your resume PDF file", type=['pdf'])
-    if uploaded_pdf is not None:
-        extracted = extract_text_from_pdf(uploaded_pdf)
-        cleaned = clean_text(extracted)
-        vectorized = vectorizer.transform([cleaned]).toarray()
-        prediction = model.predict(vectorized)[0]
-        st.success(f"🧠 Predicted Resume Category: **{prediction}**")
+# Load trained model and extract vectorizer
+pipeline = joblib.load("resume_classifier_model.joblib")
+vectorizer = pipeline.named_steps['tfidf']
 
-# ✍️ Paste Job Description Tab
-with tab2:
-    jd_text = st.text_area("Paste Job Description here")
-    if st.button("Predict Category from JD"):
-        if jd_text.strip() == "":
-            st.warning("Please enter a job description.")
-        else:
-            cleaned = clean_text(jd_text)
-            vectorized = vectorizer.transform([cleaned]).toarray()
-            prediction = model.predict(vectorized)[0]
-            st.success(f"🧠 Predicted JD Category: **{prediction}**")
+# ---------- Streamlit Frontend ----------
+st.set_page_config(page_title="Resume Scorer", page_icon="📄")
+st.title("📄 Resume Scorer by Job Category")
+st.markdown("Upload your resume or paste the text below, select a job category, and receive a match score + improvement suggestions!")
+
+# Choose Input Method
+st.subheader("1. Choose How You Want to Submit Your Resume")
+upload_col, text_col = st.columns(2)
+
+with upload_col:
+    uploaded_file = st.file_uploader("📤 Upload Resume (.txt or .pdf)", type=["txt", "pdf"])
+
+with text_col:
+    typed_resume = st.text_area("✍️ Or Paste Resume Text Here (optional)", height=200)
+
+# Select Category
+category = st.selectbox("📌 Select Job Category", sorted(df["Category"].unique()))
+
+# Process Resume
+resume_text = ""
+
+if uploaded_file:
+    if uploaded_file.type == "application/pdf":
+        resume_text = extract_text_from_pdf(uploaded_file)
+    else:
+        resume_text = uploaded_file.read().decode("utf-8")
+elif typed_resume:
+    resume_text = typed_resume
+
+if resume_text and category:
+    cleaned_resume = clean_text(resume_text)
+    category_df = df[df["Category"] == category]
+    category_resumes = category_df["Cleaned_Resume"].tolist()
+
+    score = calculate_score(cleaned_resume, category_resumes, vectorizer)
+
+    st.success(f"🎯 Resume Match Score: **{score}%**")
+
+    # # Keyword-based feedback
+    # top_keywords = vectorizer.get_feature_names_out()
+    # missing_keywords = [kw for kw in top_keywords if kw in " ".join(category_resumes) and kw not in cleaned_resume]
+
+# Get TF-IDF scores for the selected category
+category_tfidf = vectorizer.fit_transform(category_resumes)
+feature_array = vectorizer.get_feature_names_out()
+avg_tfidf_scores = category_tfidf.mean(axis=0).A1  # average across resumes
+
+# Create a sorted list of top keywords by average importance
+top_keywords = [
+    (feature_array[i], avg_tfidf_scores[i])
+    for i in range(len(feature_array))
+]
+top_keywords = sorted(top_keywords, key=lambda x: x[1], reverse=True)
+
+# Take top N (e.g., 20) most important keywords
+top_keywords_only = [kw for kw, _ in top_keywords[:20]]
+
+# Find which of those are missing from the resume
+missing_keywords = [kw for kw in top_keywords_only if kw not in cleaned_resume]
+
+
+if score < 70:
+        st.warning("📝 Feedback:")
+        st.markdown("- Try adding more relevant skills, tools, projects, or domain keywords.")
+        if missing_keywords:
+            st.markdown("- Missing keywords (examples):")
+            st.write(", ".join(missing_keywords[:10]))
+else:
+        st.success("✅ Great! Your resume is well-aligned with this job category.")
+
+# Footer
+st.markdown("---")
