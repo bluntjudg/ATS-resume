@@ -23,7 +23,7 @@ def extract_text_from_pdf(pdf_file):
     return text
 
 # Streamlit UI
-st.title("📄 ATS Resume Category Predictor")
+st.title("📄 ATS Resume Predictor")
 st.markdown("Upload a resume PDF or paste job description to get the predicted category and resume score.")
 
 # Tabs for options
