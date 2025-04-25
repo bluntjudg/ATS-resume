@@ -24,7 +24,7 @@ def extract_text_from_pdf(pdf_file):
 
 # Streamlit UI
 st.title("📄 ATS Resume Category Predictor")
-st.markdown("Upload a resume PDF or paste job description to get the predicted category.")
+st.markdown("Upload a resume PDF or paste job description to get the predicted category and resume score.")
 
 # Tabs for options
 tab1, tab2 = st.tabs(["📤 Upload Resume", "✍️ Paste Job Description"])
@@ -37,7 +37,9 @@ with tab1:
         cleaned = clean_text(extracted)
         vectorized = vectorizer.transform([cleaned]).toarray()
         prediction = model.predict(vectorized)[0]
+        score = max(model.predict_proba(vectorized)[0]) * 100  # Resume score as top class probability
         st.success(f"🧠 Predicted Resume Category: **{prediction}**")
+        st.info(f"📊 Resume Score: **{score:.2f}%**")
 
 # ✍️ Paste Job Description Tab
 with tab2:
@@ -49,4 +51,6 @@ with tab2:
             cleaned = clean_text(jd_text)
             vectorized = vectorizer.transform([cleaned]).toarray()
             prediction = model.predict(vectorized)[0]
+            score = max(model.predict_proba(vectorized)[0]) * 100  # JD score as top class probability
             st.success(f"🧠 Predicted JD Category: **{prediction}**")
+            st.info(f"📊 JD Score: **{score:.2f}%**")
