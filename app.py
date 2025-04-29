@@ -26,6 +26,23 @@ def extract_text_from_pdf(pdf_file):
             text += page_text
     return text
 
+# Function to clean and vectorize resume text
+def clean_and_vectorize_resume(resume_text):
+    cleaned = clean_text(resume_text)  # Clean the text
+    resume_vec = vectorizer.transform([cleaned]).toarray()
+    return resume_vec
+
+# Function to predict resume category and compute similarity score
+def predict_resume_category_and_score(resume_text):
+    resume_vec = clean_and_vectorize_resume(resume_text)
+    predicted_category = model.predict(resume_vec)[0]
+
+    # Calculate cosine similarity between resume vector and the centroid of predicted category
+    centroid_vec = centroids[predicted_category].reshape(1, -1)
+    score = cosine_similarity(resume_vec, centroid_vec)[0][0] * 100  # Convert to percentage
+    return predicted_category, round(score, 2)
+
+# Score Label for visual representation
 def score_label(score):
     if score >= 80:
         return "🟢 Excellent match"
@@ -33,15 +50,6 @@ def score_label(score):
         return "🟡 Good match"
     else:
         return "🔴 Needs improvement"
-
-def get_prediction_and_score(text):
-    cleaned = clean_text(text)
-    vectorized = vectorizer.transform([cleaned]).toarray()
-    prediction = model.predict(vectorized)[0]
-    centroid_vec = centroids[prediction].reshape(1, -1)
-    similarity_score = cosine_similarity(vectorized, centroid_vec)[0][0] * 100
-    return prediction, similarity_score  # return both prediction and score
-
 
 # === Streamlit UI ===
 
@@ -55,11 +63,11 @@ with tab1:
     uploaded_pdf = st.file_uploader("Upload your resume PDF file", type=['pdf'])
     if uploaded_pdf is not None:
         extracted = extract_text_from_pdf(uploaded_pdf)
-        prediction, resume_score = get_prediction_and_score(extracted)
+        prediction, similarity_score = predict_resume_category_and_score(extracted)
 
         st.success(f"🧠 Predicted Resume Category: **{prediction}**")
-        st.info(f"📊 Resume Similarity Score: **{resume_score:.2f}%** ({score_label(resume_score)})")
-        st.progress(int(resume_score))  # Show the score as a progress bar
+        st.info(f"📊 Resume Similarity Score: **{similarity_score:.2f}%** ({score_label(similarity_score)})")
+        st.progress(int(similarity_score))
 
 # === ✍️ Paste Resume Text Tab ===
 with tab2:
@@ -68,7 +76,7 @@ with tab2:
         if jd_text.strip() == "":
             st.warning("Please enter your resume text.")
         else:
-            prediction, resume_score = get_prediction_and_score(jd_text)
+            prediction, similarity_score = predict_resume_category_and_score(jd_text)
             st.success(f"🧠 Predicted Resume Category: **{prediction}**")
-            st.info(f"📊 Resume Similarity Score: **{resume_score:.2f}%** ({score_label(resume_score)})")
-            st.progress(int(resume_score))  # Show the score as a progress bar
+            st.info(f"📊 Resume Similarity Score: **{similarity_score:.2f}%** ({score_label(similarity_score)})")
+            st.progress(int(similarity_score))
