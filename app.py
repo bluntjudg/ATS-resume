@@ -2,10 +2,13 @@ import streamlit as st
 import joblib
 import re
 import PyPDF2
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
 
-# Load model & vectorizer
+# Load model, vectorizer, and centroids
 model = joblib.load('ats_nb_model.pkl')
 vectorizer = joblib.load('ats_vectorizer.pkl')
+centroids = joblib.load('category_centroids.pkl')  # Must match model's labels
 
 # Clean text
 def clean_text(text):
@@ -19,17 +22,27 @@ def extract_text_from_pdf(pdf_file):
     text = ""
     reader = PyPDF2.PdfReader(pdf_file)
     for page in reader.pages:
-        text += page.extract_text()
+        page_text = page.extract_text()
+        if page_text:
+            text += page_text
     return text
 
-# Streamlit UI
-st.title("📄 ATS Resume Predictor")
-st.markdown("Upload a resume PDF or paste job description to get the predicted category and resume score.")
+# Score label
+def score_label(score):
+    if score >= 80:
+        return "🟢 Excellent match"
+    elif score >= 60:
+        return "🟡 Good match"
+    else:
+        return "🔴 Needs improvement"
 
-# Tabs for options
+# Streamlit UI
+st.title("📄 ATS Resume Analyzer")
+st.markdown("Upload your resume to get the predicted category and how well your resume fits that field.")
+
 tab1, tab2 = st.tabs(["📤 Upload Resume", "✍️ Paste Job Description"])
 
-# 📤 Resume Upload Tab
+# === Tab 1: Upload Resume ===
 with tab1:
     uploaded_pdf = st.file_uploader("Upload your resume PDF file", type=['pdf'])
     if uploaded_pdf is not None:
@@ -37,11 +50,16 @@ with tab1:
         cleaned = clean_text(extracted)
         vectorized = vectorizer.transform([cleaned]).toarray()
         prediction = model.predict(vectorized)[0]
-        score = max(model.predict_proba(vectorized)[0]) * 100  # Resume score as top class probability
-        st.success(f"🧠 Predicted Resume Category: **{prediction}**")
-        st.info(f"📊 Resume Score: **{score:.2f}%**")
 
-# ✍️ Paste Job Description Tab
+        # Resume Similarity Score
+        centroid_vec = centroids[prediction].reshape(1, -1)
+        similarity_score = cosine_similarity(vectorized, centroid_vec)[0][0] * 100
+
+        st.success(f"🧠 Predicted Resume Category: **{prediction}**")
+        st.info(f"📊 Resume Similarity Score: **{similarity_score:.2f}%** ({score_label(similarity_score)})")
+        st.progress(int(similarity_score))
+
+# === Tab 2: Paste JD (Optional) ===
 with tab2:
     jd_text = st.text_area("Paste Job Description here")
     if st.button("Predict Category from JD"):
@@ -51,6 +69,4 @@ with tab2:
             cleaned = clean_text(jd_text)
             vectorized = vectorizer.transform([cleaned]).toarray()
             prediction = model.predict(vectorized)[0]
-            score = max(model.predict_proba(vectorized)[0]) * 100  # JD score as top class probability
             st.success(f"🧠 Predicted JD Category: **{prediction}**")
-            st.info(f"📊 JD Score: **{score:.2f}%**")
