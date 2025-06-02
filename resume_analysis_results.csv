@@ -1,0 +1,963 @@
+Row Index,Predicted Category,Similarity Score (%),Analysis
+0,Data Science,46.85,🔴 Needs improvement
+1,Data Science,63.77,🟡 Good match
+2,Data Science,72.4,🟡 Good match
+3,Data Science,48.83,🔴 Needs improvement
+4,Java Developer,36.12,🔴 Needs improvement
+5,Data Science,68.11,🟡 Good match
+6,Data Science,59.79,🔴 Needs improvement
+7,Data Science,63.41,🟡 Good match
+8,Data Science,55.86,🔴 Needs improvement
+9,Data Science,59.44,🔴 Needs improvement
+10,Data Science,46.85,🔴 Needs improvement
+11,Data Science,63.77,🟡 Good match
+12,Data Science,72.4,🟡 Good match
+13,Data Science,48.83,🔴 Needs improvement
+14,Java Developer,36.12,🔴 Needs improvement
+15,Data Science,68.11,🟡 Good match
+16,Data Science,59.79,🔴 Needs improvement
+17,Data Science,63.41,🟡 Good match
+18,Data Science,55.86,🔴 Needs improvement
+19,Data Science,59.44,🔴 Needs improvement
+20,Data Science,46.85,🔴 Needs improvement
+21,Data Science,63.77,🟡 Good match
+22,Data Science,72.4,🟡 Good match
+23,Data Science,48.83,🔴 Needs improvement
+24,Java Developer,36.12,🔴 Needs improvement
+25,Data Science,68.11,🟡 Good match
+26,Data Science,59.79,🔴 Needs improvement
+27,Data Science,63.41,🟡 Good match
+28,Data Science,55.86,🔴 Needs improvement
+29,Data Science,59.44,🔴 Needs improvement
+30,Data Science,46.85,🔴 Needs improvement
+31,Data Science,63.77,🟡 Good match
+32,Data Science,72.4,🟡 Good match
+33,Data Science,48.83,🔴 Needs improvement
+34,Java Developer,36.12,🔴 Needs improvement
+35,Data Science,68.11,🟡 Good match
+36,Data Science,59.79,🔴 Needs improvement
+37,Data Science,63.41,🟡 Good match
+38,Data Science,55.86,🔴 Needs improvement
+39,Data Science,59.44,🔴 Needs improvement
+40,HR,54.5,🔴 Needs improvement
+41,HR,30.97,🔴 Needs improvement
+42,HR,66.19,🟡 Good match
+43,HR,73.66,🟡 Good match
+44,HR,73.66,🟡 Good match
+45,HR,65.05,🟡 Good match
+46,HR,75.04,🟡 Good match
+47,HR,43.14,🔴 Needs improvement
+48,HR,35.69,🔴 Needs improvement
+49,HR,49.52,🔴 Needs improvement
+50,HR,41.64,🔴 Needs improvement
+51,HR,54.5,🔴 Needs improvement
+52,HR,30.97,🔴 Needs improvement
+53,HR,66.19,🟡 Good match
+54,HR,73.66,🟡 Good match
+55,HR,73.66,🟡 Good match
+56,HR,65.05,🟡 Good match
+57,HR,75.04,🟡 Good match
+58,HR,43.14,🔴 Needs improvement
+59,HR,35.69,🔴 Needs improvement
+60,HR,49.52,🔴 Needs improvement
+61,HR,41.64,🔴 Needs improvement
+62,HR,54.5,🔴 Needs improvement
+63,HR,30.97,🔴 Needs improvement
+64,HR,66.19,🟡 Good match
+65,HR,73.66,🟡 Good match
+66,HR,73.66,🟡 Good match
+67,HR,65.05,🟡 Good match
+68,HR,75.04,🟡 Good match
+69,HR,43.14,🔴 Needs improvement
+70,HR,35.69,🔴 Needs improvement
+71,HR,49.52,🔴 Needs improvement
+72,HR,41.64,🔴 Needs improvement
+73,HR,54.5,🔴 Needs improvement
+74,HR,30.97,🔴 Needs improvement
+75,HR,66.19,🟡 Good match
+76,HR,73.66,🟡 Good match
+77,HR,73.66,🟡 Good match
+78,HR,65.05,🟡 Good match
+79,HR,75.04,🟡 Good match
+80,HR,43.14,🔴 Needs improvement
+81,HR,35.69,🔴 Needs improvement
+82,HR,49.52,🔴 Needs improvement
+83,HR,41.64,🔴 Needs improvement
+84,Advocate,57.86,🔴 Needs improvement
+85,Java Developer,14.5,🔴 Needs improvement
+86,Java Developer,11.82,🔴 Needs improvement
+87,Java Developer,21.11,🔴 Needs improvement
+88,Java Developer,17.07,🔴 Needs improvement
+89,HR,24.64,🔴 Needs improvement
+90,Testing,16.84,🔴 Needs improvement
+91,Advocate,67.6,🟡 Good match
+92,Advocate,57,🔴 Needs improvement
+93,Testing,18.54,🔴 Needs improvement
+94,Advocate,57.86,🔴 Needs improvement
+95,Java Developer,14.5,🔴 Needs improvement
+96,Java Developer,11.82,🔴 Needs improvement
+97,Java Developer,21.11,🔴 Needs improvement
+98,Java Developer,17.07,🔴 Needs improvement
+99,HR,24.64,🔴 Needs improvement
+100,Testing,16.84,🔴 Needs improvement
+101,Advocate,67.6,🟡 Good match
+102,Advocate,57,🔴 Needs improvement
+103,Testing,18.54,🔴 Needs improvement
+104,Arts,55.24,🔴 Needs improvement
+105,Arts,60.32,🟡 Good match
+106,Arts,51.04,🔴 Needs improvement
+107,Arts,55.03,🔴 Needs improvement
+108,Arts,46.79,🔴 Needs improvement
+109,Arts,53.79,🔴 Needs improvement
+110,Arts,55.24,🔴 Needs improvement
+111,Arts,60.32,🟡 Good match
+112,Arts,51.04,🔴 Needs improvement
+113,Arts,55.03,🔴 Needs improvement
+114,Arts,46.79,🔴 Needs improvement
+115,Arts,53.79,🔴 Needs improvement
+116,Arts,55.24,🔴 Needs improvement
+117,Arts,60.32,🟡 Good match
+118,Arts,51.04,🔴 Needs improvement
+119,Arts,55.03,🔴 Needs improvement
+120,Arts,46.79,🔴 Needs improvement
+121,Arts,53.79,🔴 Needs improvement
+122,Arts,55.24,🔴 Needs improvement
+123,Arts,60.32,🟡 Good match
+124,Arts,51.04,🔴 Needs improvement
+125,Arts,55.03,🔴 Needs improvement
+126,Arts,46.79,🔴 Needs improvement
+127,Arts,53.79,🔴 Needs improvement
+128,Arts,55.24,🔴 Needs improvement
+129,Arts,60.32,🟡 Good match
+130,Arts,51.04,🔴 Needs improvement
+131,Arts,55.03,🔴 Needs improvement
+132,Arts,46.79,🔴 Needs improvement
+133,Arts,53.79,🔴 Needs improvement
+134,Arts,55.24,🔴 Needs improvement
+135,Arts,60.32,🟡 Good match
+136,Arts,51.04,🔴 Needs improvement
+137,Arts,55.03,🔴 Needs improvement
+138,Arts,46.79,🔴 Needs improvement
+139,Arts,53.79,🔴 Needs improvement
+140,Web Designing,81.94,🟢 Excellent match
+141,Web Designing,54.71,🔴 Needs improvement
+142,Web Designing,81.94,🟢 Excellent match
+143,Web Designing,37.04,🔴 Needs improvement
+144,Web Designing,63.24,🟡 Good match
+145,Web Designing,81.94,🟢 Excellent match
+146,Web Designing,54.71,🔴 Needs improvement
+147,Web Designing,81.94,🟢 Excellent match
+148,Web Designing,37.04,🔴 Needs improvement
+149,Web Designing,63.24,🟡 Good match
+150,Web Designing,81.94,🟢 Excellent match
+151,Web Designing,54.71,🔴 Needs improvement
+152,Web Designing,81.94,🟢 Excellent match
+153,Web Designing,37.04,🔴 Needs improvement
+154,Web Designing,63.24,🟡 Good match
+155,Web Designing,81.94,🟢 Excellent match
+156,Web Designing,54.71,🔴 Needs improvement
+157,Web Designing,81.94,🟢 Excellent match
+158,Web Designing,37.04,🔴 Needs improvement
+159,Web Designing,63.24,🟡 Good match
+160,Web Designing,81.94,🟢 Excellent match
+161,Web Designing,54.71,🔴 Needs improvement
+162,Web Designing,81.94,🟢 Excellent match
+163,Web Designing,37.04,🔴 Needs improvement
+164,Web Designing,63.24,🟡 Good match
+165,Web Designing,81.94,🟢 Excellent match
+166,Web Designing,54.71,🔴 Needs improvement
+167,Web Designing,81.94,🟢 Excellent match
+168,Web Designing,37.04,🔴 Needs improvement
+169,Web Designing,63.24,🟡 Good match
+170,Web Designing,81.94,🟢 Excellent match
+171,Web Designing,54.71,🔴 Needs improvement
+172,Web Designing,81.94,🟢 Excellent match
+173,Web Designing,37.04,🔴 Needs improvement
+174,Web Designing,63.24,🟡 Good match
+175,Web Designing,81.94,🟢 Excellent match
+176,Web Designing,54.71,🔴 Needs improvement
+177,Web Designing,81.94,🟢 Excellent match
+178,Web Designing,37.04,🔴 Needs improvement
+179,Web Designing,63.24,🟡 Good match
+180,Web Designing,81.94,🟢 Excellent match
+181,Web Designing,54.71,🔴 Needs improvement
+182,Web Designing,81.94,🟢 Excellent match
+183,Web Designing,37.04,🔴 Needs improvement
+184,Web Designing,63.24,🟡 Good match
+185,Mechanical Engineer,56.32,🔴 Needs improvement
+186,Mechanical Engineer,57.19,🔴 Needs improvement
+187,Mechanical Engineer,63.54,🟡 Good match
+188,Mechanical Engineer,65.63,🟡 Good match
+189,Mechanical Engineer,57.53,🔴 Needs improvement
+190,Mechanical Engineer,56.32,🔴 Needs improvement
+191,Mechanical Engineer,57.19,🔴 Needs improvement
+192,Mechanical Engineer,63.54,🟡 Good match
+193,Mechanical Engineer,65.63,🟡 Good match
+194,Mechanical Engineer,57.53,🔴 Needs improvement
+195,Mechanical Engineer,56.32,🔴 Needs improvement
+196,Mechanical Engineer,57.19,🔴 Needs improvement
+197,Mechanical Engineer,63.54,🟡 Good match
+198,Mechanical Engineer,65.63,🟡 Good match
+199,Mechanical Engineer,57.53,🔴 Needs improvement
+200,Mechanical Engineer,56.32,🔴 Needs improvement
+201,Mechanical Engineer,57.19,🔴 Needs improvement
+202,Mechanical Engineer,63.54,🟡 Good match
+203,Mechanical Engineer,65.63,🟡 Good match
+204,Mechanical Engineer,57.53,🔴 Needs improvement
+205,Mechanical Engineer,56.32,🔴 Needs improvement
+206,Mechanical Engineer,57.19,🔴 Needs improvement
+207,Mechanical Engineer,63.54,🟡 Good match
+208,Mechanical Engineer,65.63,🟡 Good match
+209,Mechanical Engineer,57.53,🔴 Needs improvement
+210,Mechanical Engineer,56.32,🔴 Needs improvement
+211,Mechanical Engineer,57.19,🔴 Needs improvement
+212,Mechanical Engineer,63.54,🟡 Good match
+213,Mechanical Engineer,65.63,🟡 Good match
+214,Mechanical Engineer,57.53,🔴 Needs improvement
+215,Mechanical Engineer,56.32,🔴 Needs improvement
+216,Mechanical Engineer,57.19,🔴 Needs improvement
+217,Mechanical Engineer,63.54,🟡 Good match
+218,Mechanical Engineer,65.63,🟡 Good match
+219,Mechanical Engineer,57.53,🔴 Needs improvement
+220,Mechanical Engineer,56.32,🔴 Needs improvement
+221,Mechanical Engineer,57.19,🔴 Needs improvement
+222,Mechanical Engineer,63.54,🟡 Good match
+223,Mechanical Engineer,65.63,🟡 Good match
+224,Mechanical Engineer,57.53,🔴 Needs improvement
+225,Sales,55.22,🔴 Needs improvement
+226,Sales,65.75,🟡 Good match
+227,Sales,73.38,🟡 Good match
+228,Sales,61.8,🟡 Good match
+229,Sales,58.62,🔴 Needs improvement
+230,Sales,55.22,🔴 Needs improvement
+231,Sales,65.75,🟡 Good match
+232,Sales,73.38,🟡 Good match
+233,Sales,61.8,🟡 Good match
+234,Sales,58.62,🔴 Needs improvement
+235,Sales,55.22,🔴 Needs improvement
+236,Sales,65.75,🟡 Good match
+237,Sales,73.38,🟡 Good match
+238,Sales,61.8,🟡 Good match
+239,Sales,58.62,🔴 Needs improvement
+240,Sales,55.22,🔴 Needs improvement
+241,Sales,65.75,🟡 Good match
+242,Sales,73.38,🟡 Good match
+243,Sales,61.8,🟡 Good match
+244,Sales,58.62,🔴 Needs improvement
+245,Sales,55.22,🔴 Needs improvement
+246,Sales,65.75,🟡 Good match
+247,Sales,73.38,🟡 Good match
+248,Sales,61.8,🟡 Good match
+249,Sales,58.62,🔴 Needs improvement
+250,Sales,55.22,🔴 Needs improvement
+251,Sales,65.75,🟡 Good match
+252,Sales,73.38,🟡 Good match
+253,Sales,61.8,🟡 Good match
+254,Sales,58.62,🔴 Needs improvement
+255,Sales,55.22,🔴 Needs improvement
+256,Sales,65.75,🟡 Good match
+257,Sales,73.38,🟡 Good match
+258,Sales,61.8,🟡 Good match
+259,Sales,58.62,🔴 Needs improvement
+260,Sales,55.22,🔴 Needs improvement
+261,Sales,65.75,🟡 Good match
+262,Sales,73.38,🟡 Good match
+263,Sales,61.8,🟡 Good match
+264,Sales,58.62,🔴 Needs improvement
+265,Health and fitness,62.28,🟡 Good match
+266,Health and fitness,62.57,🟡 Good match
+267,Health and fitness,59.72,🔴 Needs improvement
+268,Health and fitness,64.42,🟡 Good match
+269,Health and fitness,58.14,🔴 Needs improvement
+270,Health and fitness,60.81,🟡 Good match
+271,Health and fitness,62.28,🟡 Good match
+272,Health and fitness,62.57,🟡 Good match
+273,Health and fitness,59.72,🔴 Needs improvement
+274,Health and fitness,64.42,🟡 Good match
+275,Health and fitness,58.14,🔴 Needs improvement
+276,Health and fitness,60.81,🟡 Good match
+277,Health and fitness,62.28,🟡 Good match
+278,Health and fitness,62.57,🟡 Good match
+279,Health and fitness,59.72,🔴 Needs improvement
+280,Health and fitness,64.42,🟡 Good match
+281,Health and fitness,58.14,🔴 Needs improvement
+282,Health and fitness,60.81,🟡 Good match
+283,Health and fitness,62.28,🟡 Good match
+284,Health and fitness,62.57,🟡 Good match
+285,Health and fitness,59.72,🔴 Needs improvement
+286,Health and fitness,64.42,🟡 Good match
+287,Health and fitness,58.14,🔴 Needs improvement
+288,Health and fitness,60.81,🟡 Good match
+289,Health and fitness,62.28,🟡 Good match
+290,Health and fitness,62.57,🟡 Good match
+291,Health and fitness,59.72,🔴 Needs improvement
+292,Health and fitness,64.42,🟡 Good match
+293,Health and fitness,58.14,🔴 Needs improvement
+294,Health and fitness,60.81,🟡 Good match
+295,Civil Engineer,64.7,🟡 Good match
+296,Civil Engineer,78.26,🟡 Good match
+297,Civil Engineer,71.41,🟡 Good match
+298,Civil Engineer,65.56,🟡 Good match
+299,Civil Engineer,69.13,🟡 Good match
+300,Civil Engineer,72.31,🟡 Good match
+301,Civil Engineer,64.7,🟡 Good match
+302,Civil Engineer,78.26,🟡 Good match
+303,Civil Engineer,71.41,🟡 Good match
+304,Civil Engineer,65.56,🟡 Good match
+305,Civil Engineer,69.13,🟡 Good match
+306,Civil Engineer,72.31,🟡 Good match
+307,Civil Engineer,64.7,🟡 Good match
+308,Civil Engineer,78.26,🟡 Good match
+309,Civil Engineer,71.41,🟡 Good match
+310,Civil Engineer,65.56,🟡 Good match
+311,Civil Engineer,69.13,🟡 Good match
+312,Civil Engineer,72.31,🟡 Good match
+313,Civil Engineer,64.7,🟡 Good match
+314,Civil Engineer,78.26,🟡 Good match
+315,Civil Engineer,71.41,🟡 Good match
+316,Civil Engineer,65.56,🟡 Good match
+317,Civil Engineer,69.13,🟡 Good match
+318,Civil Engineer,72.31,🟡 Good match
+319,Java Developer,56,🔴 Needs improvement
+320,Java Developer,46.02,🔴 Needs improvement
+321,Java Developer,45.83,🔴 Needs improvement
+322,Java Developer,53.04,🔴 Needs improvement
+323,Java Developer,48.42,🔴 Needs improvement
+324,Java Developer,67.55,🟡 Good match
+325,Java Developer,70.2,🟡 Good match
+326,Java Developer,70.2,🟡 Good match
+327,Java Developer,57.43,🔴 Needs improvement
+328,Java Developer,69.7,🟡 Good match
+329,Java Developer,66.13,🟡 Good match
+330,Java Developer,63.36,🟡 Good match
+331,Java Developer,53.22,🔴 Needs improvement
+332,Java Developer,47.41,🔴 Needs improvement
+333,Java Developer,56,🔴 Needs improvement
+334,Java Developer,46.02,🔴 Needs improvement
+335,Java Developer,45.83,🔴 Needs improvement
+336,Java Developer,53.04,🔴 Needs improvement
+337,Java Developer,48.42,🔴 Needs improvement
+338,Java Developer,67.55,🟡 Good match
+339,Java Developer,70.2,🟡 Good match
+340,Java Developer,70.2,🟡 Good match
+341,Java Developer,57.43,🔴 Needs improvement
+342,Java Developer,69.7,🟡 Good match
+343,Java Developer,66.13,🟡 Good match
+344,Java Developer,63.36,🟡 Good match
+345,Java Developer,53.22,🔴 Needs improvement
+346,Java Developer,47.41,🔴 Needs improvement
+347,Java Developer,56,🔴 Needs improvement
+348,Java Developer,46.02,🔴 Needs improvement
+349,Java Developer,45.83,🔴 Needs improvement
+350,Java Developer,53.04,🔴 Needs improvement
+351,Java Developer,48.42,🔴 Needs improvement
+352,Java Developer,67.55,🟡 Good match
+353,Java Developer,70.2,🟡 Good match
+354,Java Developer,70.2,🟡 Good match
+355,Java Developer,57.43,🔴 Needs improvement
+356,Java Developer,69.7,🟡 Good match
+357,Java Developer,66.13,🟡 Good match
+358,Java Developer,63.36,🟡 Good match
+359,Java Developer,53.22,🔴 Needs improvement
+360,Java Developer,47.41,🔴 Needs improvement
+361,Java Developer,56,🔴 Needs improvement
+362,Java Developer,46.02,🔴 Needs improvement
+363,Java Developer,45.83,🔴 Needs improvement
+364,Java Developer,53.04,🔴 Needs improvement
+365,Java Developer,48.42,🔴 Needs improvement
+366,Java Developer,67.55,🟡 Good match
+367,Java Developer,70.2,🟡 Good match
+368,Java Developer,70.2,🟡 Good match
+369,Java Developer,57.43,🔴 Needs improvement
+370,Java Developer,69.7,🟡 Good match
+371,Java Developer,66.13,🟡 Good match
+372,Java Developer,63.36,🟡 Good match
+373,Java Developer,53.22,🔴 Needs improvement
+374,Java Developer,47.41,🔴 Needs improvement
+375,Java Developer,56,🔴 Needs improvement
+376,Java Developer,46.02,🔴 Needs improvement
+377,Java Developer,45.83,🔴 Needs improvement
+378,Java Developer,53.04,🔴 Needs improvement
+379,Java Developer,48.42,🔴 Needs improvement
+380,Java Developer,67.55,🟡 Good match
+381,Java Developer,70.2,🟡 Good match
+382,Java Developer,70.2,🟡 Good match
+383,Java Developer,57.43,🔴 Needs improvement
+384,Java Developer,69.7,🟡 Good match
+385,Java Developer,66.13,🟡 Good match
+386,Java Developer,63.36,🟡 Good match
+387,Java Developer,53.22,🔴 Needs improvement
+388,Java Developer,47.41,🔴 Needs improvement
+389,Java Developer,56,🔴 Needs improvement
+390,Java Developer,46.02,🔴 Needs improvement
+391,Java Developer,45.83,🔴 Needs improvement
+392,Java Developer,53.04,🔴 Needs improvement
+393,Java Developer,48.42,🔴 Needs improvement
+394,Java Developer,67.55,🟡 Good match
+395,Java Developer,70.2,🟡 Good match
+396,Java Developer,70.2,🟡 Good match
+397,Java Developer,57.43,🔴 Needs improvement
+398,Java Developer,69.7,🟡 Good match
+399,Java Developer,66.13,🟡 Good match
+400,Java Developer,63.36,🟡 Good match
+401,Java Developer,53.22,🔴 Needs improvement
+402,Java Developer,47.41,🔴 Needs improvement
+403,Business Analyst,63.09,🟡 Good match
+404,Java Developer,23.79,🔴 Needs improvement
+405,Business Analyst,72.7,🟡 Good match
+406,Business Analyst,74.38,🟡 Good match
+407,Business Analyst,64.11,🟡 Good match
+408,Business Analyst,50.74,🔴 Needs improvement
+409,Business Analyst,72.7,🟡 Good match
+410,Business Analyst,74.38,🟡 Good match
+411,Business Analyst,64.11,🟡 Good match
+412,Business Analyst,50.74,🔴 Needs improvement
+413,Business Analyst,72.7,🟡 Good match
+414,Business Analyst,74.38,🟡 Good match
+415,Business Analyst,64.11,🟡 Good match
+416,Business Analyst,50.74,🔴 Needs improvement
+417,Business Analyst,63.09,🟡 Good match
+418,Java Developer,23.79,🔴 Needs improvement
+419,Business Analyst,72.7,🟡 Good match
+420,Business Analyst,74.38,🟡 Good match
+421,Business Analyst,64.11,🟡 Good match
+422,Business Analyst,50.74,🔴 Needs improvement
+423,Business Analyst,72.7,🟡 Good match
+424,Business Analyst,74.38,🟡 Good match
+425,Business Analyst,64.11,🟡 Good match
+426,Business Analyst,50.74,🔴 Needs improvement
+427,Business Analyst,72.7,🟡 Good match
+428,Business Analyst,74.38,🟡 Good match
+429,Business Analyst,64.11,🟡 Good match
+430,Business Analyst,50.74,🔴 Needs improvement
+431,Java Developer,24.28,🔴 Needs improvement
+432,SAP Developer,73.63,🟡 Good match
+433,SAP Developer,65.67,🟡 Good match
+434,SAP Developer,58.66,🔴 Needs improvement
+435,SAP Developer,63.61,🟡 Good match
+436,SAP Developer,71.37,🟡 Good match
+437,Java Developer,24.28,🔴 Needs improvement
+438,SAP Developer,73.63,🟡 Good match
+439,SAP Developer,65.67,🟡 Good match
+440,SAP Developer,58.66,🔴 Needs improvement
+441,SAP Developer,63.61,🟡 Good match
+442,SAP Developer,71.37,🟡 Good match
+443,Java Developer,24.28,🔴 Needs improvement
+444,SAP Developer,73.63,🟡 Good match
+445,SAP Developer,65.67,🟡 Good match
+446,SAP Developer,58.66,🔴 Needs improvement
+447,SAP Developer,63.61,🟡 Good match
+448,SAP Developer,71.37,🟡 Good match
+449,Java Developer,24.28,🔴 Needs improvement
+450,SAP Developer,73.63,🟡 Good match
+451,SAP Developer,65.67,🟡 Good match
+452,SAP Developer,58.66,🔴 Needs improvement
+453,SAP Developer,63.61,🟡 Good match
+454,SAP Developer,71.37,🟡 Good match
+455,Testing,34.51,🔴 Needs improvement
+456,Testing,31.79,🔴 Needs improvement
+457,Java Developer,36.14,🔴 Needs improvement
+458,Automation Testing,81.91,🟢 Excellent match
+459,Testing,43.97,🔴 Needs improvement
+460,Automation Testing,67.49,🟡 Good match
+461,Java Developer,22.3,🔴 Needs improvement
+462,Automation Testing,81.91,🟢 Excellent match
+463,Testing,43.97,🔴 Needs improvement
+464,Automation Testing,81.91,🟢 Excellent match
+465,Testing,43.97,🔴 Needs improvement
+466,Automation Testing,81.91,🟢 Excellent match
+467,Testing,43.97,🔴 Needs improvement
+468,Testing,34.51,🔴 Needs improvement
+469,Testing,31.79,🔴 Needs improvement
+470,Java Developer,36.14,🔴 Needs improvement
+471,Automation Testing,81.91,🟢 Excellent match
+472,Testing,43.97,🔴 Needs improvement
+473,Automation Testing,67.49,🟡 Good match
+474,Java Developer,22.3,🔴 Needs improvement
+475,Automation Testing,81.91,🟢 Excellent match
+476,Testing,43.97,🔴 Needs improvement
+477,Automation Testing,81.91,🟢 Excellent match
+478,Testing,43.97,🔴 Needs improvement
+479,Automation Testing,81.91,🟢 Excellent match
+480,Testing,43.97,🔴 Needs improvement
+481,Electrical Engineering,74.61,🟡 Good match
+482,Electrical Engineering,57.56,🔴 Needs improvement
+483,Electrical Engineering,71.61,🟡 Good match
+484,Electrical Engineering,59.99,🔴 Needs improvement
+485,Electrical Engineering,71.57,🟡 Good match
+486,Electrical Engineering,74.61,🟡 Good match
+487,Electrical Engineering,57.56,🔴 Needs improvement
+488,Electrical Engineering,71.61,🟡 Good match
+489,Electrical Engineering,59.99,🔴 Needs improvement
+490,Electrical Engineering,71.57,🟡 Good match
+491,Electrical Engineering,74.61,🟡 Good match
+492,Electrical Engineering,57.56,🔴 Needs improvement
+493,Electrical Engineering,71.61,🟡 Good match
+494,Electrical Engineering,59.99,🔴 Needs improvement
+495,Electrical Engineering,71.57,🟡 Good match
+496,Electrical Engineering,74.61,🟡 Good match
+497,Electrical Engineering,57.56,🔴 Needs improvement
+498,Electrical Engineering,71.61,🟡 Good match
+499,Electrical Engineering,59.99,🔴 Needs improvement
+500,Electrical Engineering,71.57,🟡 Good match
+501,Electrical Engineering,74.61,🟡 Good match
+502,Electrical Engineering,57.56,🔴 Needs improvement
+503,Electrical Engineering,71.61,🟡 Good match
+504,Electrical Engineering,59.99,🔴 Needs improvement
+505,Electrical Engineering,71.57,🟡 Good match
+506,Electrical Engineering,74.61,🟡 Good match
+507,Electrical Engineering,57.56,🔴 Needs improvement
+508,Electrical Engineering,71.61,🟡 Good match
+509,Electrical Engineering,59.99,🔴 Needs improvement
+510,Electrical Engineering,71.57,🟡 Good match
+511,Operations Manager,80.65,🟢 Excellent match
+512,Operations Manager,75.16,🟡 Good match
+513,Operations Manager,77.07,🟡 Good match
+514,Operations Manager,67.35,🟡 Good match
+515,Operations Manager,80.65,🟢 Excellent match
+516,Operations Manager,75.16,🟡 Good match
+517,Operations Manager,77.07,🟡 Good match
+518,Operations Manager,67.35,🟡 Good match
+519,Operations Manager,80.65,🟢 Excellent match
+520,Operations Manager,75.16,🟡 Good match
+521,Operations Manager,77.07,🟡 Good match
+522,Operations Manager,67.35,🟡 Good match
+523,Operations Manager,80.65,🟢 Excellent match
+524,Operations Manager,75.16,🟡 Good match
+525,Operations Manager,77.07,🟡 Good match
+526,Operations Manager,67.35,🟡 Good match
+527,Operations Manager,80.65,🟢 Excellent match
+528,Operations Manager,75.16,🟡 Good match
+529,Operations Manager,77.07,🟡 Good match
+530,Operations Manager,67.35,🟡 Good match
+531,Operations Manager,80.65,🟢 Excellent match
+532,Operations Manager,75.16,🟡 Good match
+533,Operations Manager,77.07,🟡 Good match
+534,Operations Manager,67.35,🟡 Good match
+535,Operations Manager,80.65,🟢 Excellent match
+536,Operations Manager,75.16,🟡 Good match
+537,Operations Manager,77.07,🟡 Good match
+538,Operations Manager,67.35,🟡 Good match
+539,Operations Manager,80.65,🟢 Excellent match
+540,Operations Manager,75.16,🟡 Good match
+541,Operations Manager,77.07,🟡 Good match
+542,Operations Manager,67.35,🟡 Good match
+543,Operations Manager,80.65,🟢 Excellent match
+544,Operations Manager,75.16,🟡 Good match
+545,Operations Manager,77.07,🟡 Good match
+546,Operations Manager,67.35,🟡 Good match
+547,Operations Manager,80.65,🟢 Excellent match
+548,Operations Manager,75.16,🟡 Good match
+549,Operations Manager,77.07,🟡 Good match
+550,Operations Manager,67.35,🟡 Good match
+551,Python Developer,64.73,🟡 Good match
+552,Python Developer,52.32,🔴 Needs improvement
+553,Python Developer,67.58,🟡 Good match
+554,Python Developer,57.12,🔴 Needs improvement
+555,Python Developer,64.16,🟡 Good match
+556,Python Developer,63.16,🟡 Good match
+557,Python Developer,64.73,🟡 Good match
+558,Python Developer,52.32,🔴 Needs improvement
+559,Python Developer,67.58,🟡 Good match
+560,Python Developer,57.12,🔴 Needs improvement
+561,Python Developer,64.16,🟡 Good match
+562,Python Developer,63.16,🟡 Good match
+563,Python Developer,64.73,🟡 Good match
+564,Python Developer,52.32,🔴 Needs improvement
+565,Python Developer,67.58,🟡 Good match
+566,Python Developer,57.12,🔴 Needs improvement
+567,Python Developer,64.16,🟡 Good match
+568,Python Developer,63.16,🟡 Good match
+569,Python Developer,64.73,🟡 Good match
+570,Python Developer,52.32,🔴 Needs improvement
+571,Python Developer,67.58,🟡 Good match
+572,Python Developer,57.12,🔴 Needs improvement
+573,Python Developer,64.16,🟡 Good match
+574,Python Developer,63.16,🟡 Good match
+575,Python Developer,64.73,🟡 Good match
+576,Python Developer,52.32,🔴 Needs improvement
+577,Python Developer,67.58,🟡 Good match
+578,Python Developer,57.12,🔴 Needs improvement
+579,Python Developer,64.16,🟡 Good match
+580,Python Developer,63.16,🟡 Good match
+581,Python Developer,64.73,🟡 Good match
+582,Python Developer,52.32,🔴 Needs improvement
+583,Python Developer,67.58,🟡 Good match
+584,Python Developer,57.12,🔴 Needs improvement
+585,Python Developer,64.16,🟡 Good match
+586,Python Developer,63.16,🟡 Good match
+587,Python Developer,64.73,🟡 Good match
+588,Python Developer,52.32,🔴 Needs improvement
+589,Python Developer,67.58,🟡 Good match
+590,Python Developer,57.12,🔴 Needs improvement
+591,Python Developer,64.16,🟡 Good match
+592,Python Developer,63.16,🟡 Good match
+593,Python Developer,64.73,🟡 Good match
+594,Python Developer,52.32,🔴 Needs improvement
+595,Python Developer,67.58,🟡 Good match
+596,Python Developer,57.12,🔴 Needs improvement
+597,Python Developer,64.16,🟡 Good match
+598,Python Developer,63.16,🟡 Good match
+599,DevOps Engineer,75.15,🟡 Good match
+600,DevOps Engineer,63.78,🟡 Good match
+601,DevOps Engineer,69.27,🟡 Good match
+602,Java Developer,27.71,🔴 Needs improvement
+603,PMO,51.63,🔴 Needs improvement
+604,Java Developer,18.77,🔴 Needs improvement
+605,DevOps Engineer,39.76,🔴 Needs improvement
+606,DevOps Engineer,75.15,🟡 Good match
+607,DevOps Engineer,63.78,🟡 Good match
+608,DevOps Engineer,69.27,🟡 Good match
+609,DevOps Engineer,75.15,🟡 Good match
+610,DevOps Engineer,63.78,🟡 Good match
+611,DevOps Engineer,69.27,🟡 Good match
+612,DevOps Engineer,75.15,🟡 Good match
+613,DevOps Engineer,63.78,🟡 Good match
+614,DevOps Engineer,69.27,🟡 Good match
+615,DevOps Engineer,75.15,🟡 Good match
+616,DevOps Engineer,63.78,🟡 Good match
+617,DevOps Engineer,69.27,🟡 Good match
+618,DevOps Engineer,75.15,🟡 Good match
+619,DevOps Engineer,63.78,🟡 Good match
+620,DevOps Engineer,69.27,🟡 Good match
+621,DevOps Engineer,75.15,🟡 Good match
+622,DevOps Engineer,63.78,🟡 Good match
+623,DevOps Engineer,69.27,🟡 Good match
+624,DevOps Engineer,75.15,🟡 Good match
+625,DevOps Engineer,63.78,🟡 Good match
+626,DevOps Engineer,69.27,🟡 Good match
+627,DevOps Engineer,75.15,🟡 Good match
+628,DevOps Engineer,63.78,🟡 Good match
+629,DevOps Engineer,69.27,🟡 Good match
+630,DevOps Engineer,75.15,🟡 Good match
+631,DevOps Engineer,63.78,🟡 Good match
+632,DevOps Engineer,69.27,🟡 Good match
+633,DevOps Engineer,75.15,🟡 Good match
+634,DevOps Engineer,63.78,🟡 Good match
+635,DevOps Engineer,69.27,🟡 Good match
+636,DevOps Engineer,75.15,🟡 Good match
+637,DevOps Engineer,63.78,🟡 Good match
+638,DevOps Engineer,69.27,🟡 Good match
+639,DevOps Engineer,75.15,🟡 Good match
+640,DevOps Engineer,63.78,🟡 Good match
+641,DevOps Engineer,69.27,🟡 Good match
+642,DevOps Engineer,75.15,🟡 Good match
+643,DevOps Engineer,63.78,🟡 Good match
+644,DevOps Engineer,69.27,🟡 Good match
+645,DevOps Engineer,75.15,🟡 Good match
+646,DevOps Engineer,63.78,🟡 Good match
+647,DevOps Engineer,69.27,🟡 Good match
+648,DevOps Engineer,75.15,🟡 Good match
+649,DevOps Engineer,63.78,🟡 Good match
+650,DevOps Engineer,69.27,🟡 Good match
+651,DevOps Engineer,75.15,🟡 Good match
+652,DevOps Engineer,63.78,🟡 Good match
+653,DevOps Engineer,69.27,🟡 Good match
+654,Network Security Engineer,80.1,🟢 Excellent match
+655,Network Security Engineer,72.22,🟡 Good match
+656,Network Security Engineer,68.03,🟡 Good match
+657,Network Security Engineer,68.48,🟡 Good match
+658,Network Security Engineer,65.48,🟡 Good match
+659,Network Security Engineer,80.1,🟢 Excellent match
+660,Network Security Engineer,72.22,🟡 Good match
+661,Network Security Engineer,68.03,🟡 Good match
+662,Network Security Engineer,68.48,🟡 Good match
+663,Network Security Engineer,65.48,🟡 Good match
+664,Network Security Engineer,80.1,🟢 Excellent match
+665,Network Security Engineer,72.22,🟡 Good match
+666,Network Security Engineer,68.03,🟡 Good match
+667,Network Security Engineer,68.48,🟡 Good match
+668,Network Security Engineer,65.48,🟡 Good match
+669,Network Security Engineer,80.1,🟢 Excellent match
+670,Network Security Engineer,72.22,🟡 Good match
+671,Network Security Engineer,68.03,🟡 Good match
+672,Network Security Engineer,68.48,🟡 Good match
+673,Network Security Engineer,65.48,🟡 Good match
+674,Network Security Engineer,80.1,🟢 Excellent match
+675,Network Security Engineer,72.22,🟡 Good match
+676,Network Security Engineer,68.03,🟡 Good match
+677,Network Security Engineer,68.48,🟡 Good match
+678,Network Security Engineer,65.48,🟡 Good match
+679,PMO,82.57,🟢 Excellent match
+680,PMO,79.78,🟡 Good match
+681,PMO,72.78,🟡 Good match
+682,PMO,82.57,🟢 Excellent match
+683,PMO,79.78,🟡 Good match
+684,PMO,72.78,🟡 Good match
+685,PMO,82.57,🟢 Excellent match
+686,PMO,79.78,🟡 Good match
+687,PMO,72.78,🟡 Good match
+688,PMO,82.57,🟢 Excellent match
+689,PMO,79.78,🟡 Good match
+690,PMO,72.78,🟡 Good match
+691,PMO,82.57,🟢 Excellent match
+692,PMO,79.78,🟡 Good match
+693,PMO,72.78,🟡 Good match
+694,PMO,82.57,🟢 Excellent match
+695,PMO,79.78,🟡 Good match
+696,PMO,72.78,🟡 Good match
+697,PMO,82.57,🟢 Excellent match
+698,PMO,79.78,🟡 Good match
+699,PMO,72.78,🟡 Good match
+700,PMO,82.57,🟢 Excellent match
+701,PMO,79.78,🟡 Good match
+702,PMO,72.78,🟡 Good match
+703,PMO,82.57,🟢 Excellent match
+704,PMO,79.78,🟡 Good match
+705,PMO,72.78,🟡 Good match
+706,PMO,82.57,🟢 Excellent match
+707,PMO,79.78,🟡 Good match
+708,PMO,72.78,🟡 Good match
+709,Database,69.65,🟡 Good match
+710,Database,73.69,🟡 Good match
+711,Database,65.74,🟡 Good match
+712,Database,71.66,🟡 Good match
+713,Database,56.25,🔴 Needs improvement
+714,Database,70.5,🟡 Good match
+715,Database,70.74,🟡 Good match
+716,Database,70.46,🟡 Good match
+717,Database,53.55,🔴 Needs improvement
+718,Database,76.71,🟡 Good match
+719,Database,48.8,🔴 Needs improvement
+720,Database,69.65,🟡 Good match
+721,Database,73.69,🟡 Good match
+722,Database,65.74,🟡 Good match
+723,Database,71.66,🟡 Good match
+724,Database,56.25,🔴 Needs improvement
+725,Database,70.5,🟡 Good match
+726,Database,70.74,🟡 Good match
+727,Database,70.46,🟡 Good match
+728,Database,53.55,🔴 Needs improvement
+729,Database,76.71,🟡 Good match
+730,Database,48.8,🔴 Needs improvement
+731,Database,69.65,🟡 Good match
+732,Database,73.69,🟡 Good match
+733,Database,65.74,🟡 Good match
+734,Database,71.66,🟡 Good match
+735,Database,56.25,🔴 Needs improvement
+736,Database,70.5,🟡 Good match
+737,Database,70.74,🟡 Good match
+738,Database,70.46,🟡 Good match
+739,Database,53.55,🔴 Needs improvement
+740,Database,76.71,🟡 Good match
+741,Database,48.8,🔴 Needs improvement
+742,Hadoop,85.16,🟢 Excellent match
+743,Hadoop,69.26,🟡 Good match
+744,Hadoop,78.59,🟡 Good match
+745,Hadoop,70.82,🟡 Good match
+746,Hadoop,80.23,🟢 Excellent match
+747,Hadoop,62.15,🟡 Good match
+748,Hadoop,73.72,🟡 Good match
+749,Hadoop,85.16,🟢 Excellent match
+750,Hadoop,69.26,🟡 Good match
+751,Hadoop,78.59,🟡 Good match
+752,Hadoop,70.82,🟡 Good match
+753,Hadoop,80.23,🟢 Excellent match
+754,Hadoop,62.15,🟡 Good match
+755,Hadoop,73.72,🟡 Good match
+756,Hadoop,85.16,🟢 Excellent match
+757,Hadoop,69.26,🟡 Good match
+758,Hadoop,78.59,🟡 Good match
+759,Hadoop,70.82,🟡 Good match
+760,Hadoop,80.23,🟢 Excellent match
+761,Hadoop,62.15,🟡 Good match
+762,Hadoop,73.72,🟡 Good match
+763,Hadoop,85.16,🟢 Excellent match
+764,Hadoop,69.26,🟡 Good match
+765,Hadoop,78.59,🟡 Good match
+766,Hadoop,70.82,🟡 Good match
+767,Hadoop,80.23,🟢 Excellent match
+768,Hadoop,62.15,🟡 Good match
+769,Hadoop,73.72,🟡 Good match
+770,Hadoop,85.16,🟢 Excellent match
+771,Hadoop,69.26,🟡 Good match
+772,Hadoop,78.59,🟡 Good match
+773,Hadoop,70.82,🟡 Good match
+774,Hadoop,80.23,🟢 Excellent match
+775,Hadoop,62.15,🟡 Good match
+776,Hadoop,73.72,🟡 Good match
+777,Hadoop,85.16,🟢 Excellent match
+778,Hadoop,69.26,🟡 Good match
+779,Hadoop,78.59,🟡 Good match
+780,Hadoop,70.82,🟡 Good match
+781,Hadoop,80.23,🟢 Excellent match
+782,Hadoop,62.15,🟡 Good match
+783,Hadoop,73.72,🟡 Good match
+784,ETL Developer,75.62,🟡 Good match
+785,ETL Developer,75.67,🟡 Good match
+786,ETL Developer,63.35,🟡 Good match
+787,ETL Developer,66.04,🟡 Good match
+788,ETL Developer,57.33,🔴 Needs improvement
+789,ETL Developer,75.62,🟡 Good match
+790,ETL Developer,75.67,🟡 Good match
+791,ETL Developer,63.35,🟡 Good match
+792,ETL Developer,66.04,🟡 Good match
+793,ETL Developer,57.33,🔴 Needs improvement
+794,ETL Developer,75.62,🟡 Good match
+795,ETL Developer,75.67,🟡 Good match
+796,ETL Developer,63.35,🟡 Good match
+797,ETL Developer,66.04,🟡 Good match
+798,ETL Developer,57.33,🔴 Needs improvement
+799,ETL Developer,75.62,🟡 Good match
+800,ETL Developer,75.67,🟡 Good match
+801,ETL Developer,63.35,🟡 Good match
+802,ETL Developer,66.04,🟡 Good match
+803,ETL Developer,57.33,🔴 Needs improvement
+804,ETL Developer,75.62,🟡 Good match
+805,ETL Developer,75.67,🟡 Good match
+806,ETL Developer,63.35,🟡 Good match
+807,ETL Developer,66.04,🟡 Good match
+808,ETL Developer,57.33,🔴 Needs improvement
+809,ETL Developer,75.62,🟡 Good match
+810,ETL Developer,75.67,🟡 Good match
+811,ETL Developer,63.35,🟡 Good match
+812,ETL Developer,66.04,🟡 Good match
+813,ETL Developer,57.33,🔴 Needs improvement
+814,ETL Developer,75.62,🟡 Good match
+815,ETL Developer,75.67,🟡 Good match
+816,ETL Developer,63.35,🟡 Good match
+817,ETL Developer,66.04,🟡 Good match
+818,ETL Developer,57.33,🔴 Needs improvement
+819,ETL Developer,75.62,🟡 Good match
+820,ETL Developer,75.67,🟡 Good match
+821,ETL Developer,63.35,🟡 Good match
+822,ETL Developer,66.04,🟡 Good match
+823,ETL Developer,57.33,🔴 Needs improvement
+824,Java Developer,33.97,🔴 Needs improvement
+825,DotNet Developer,67.38,🟡 Good match
+826,DotNet Developer,59.74,🔴 Needs improvement
+827,DotNet Developer,60.59,🟡 Good match
+828,DotNet Developer,70.74,🟡 Good match
+829,DotNet Developer,64.42,🟡 Good match
+830,DotNet Developer,76.23,🟡 Good match
+831,Java Developer,33.97,🔴 Needs improvement
+832,DotNet Developer,67.38,🟡 Good match
+833,DotNet Developer,59.74,🔴 Needs improvement
+834,DotNet Developer,60.59,🟡 Good match
+835,DotNet Developer,70.74,🟡 Good match
+836,DotNet Developer,64.42,🟡 Good match
+837,DotNet Developer,76.23,🟡 Good match
+838,Java Developer,33.97,🔴 Needs improvement
+839,DotNet Developer,67.38,🟡 Good match
+840,DotNet Developer,59.74,🔴 Needs improvement
+841,DotNet Developer,60.59,🟡 Good match
+842,DotNet Developer,70.74,🟡 Good match
+843,DotNet Developer,64.42,🟡 Good match
+844,DotNet Developer,76.23,🟡 Good match
+845,Java Developer,33.97,🔴 Needs improvement
+846,DotNet Developer,67.38,🟡 Good match
+847,DotNet Developer,59.74,🔴 Needs improvement
+848,DotNet Developer,60.59,🟡 Good match
+849,DotNet Developer,70.74,🟡 Good match
+850,DotNet Developer,64.42,🟡 Good match
+851,DotNet Developer,76.23,🟡 Good match
+852,Blockchain,64.29,🟡 Good match
+853,Blockchain,67.83,🟡 Good match
+854,Blockchain,59.57,🔴 Needs improvement
+855,Blockchain,67.61,🟡 Good match
+856,Blockchain,54.54,🔴 Needs improvement
+857,Blockchain,64.29,🟡 Good match
+858,Blockchain,67.83,🟡 Good match
+859,Blockchain,59.57,🔴 Needs improvement
+860,Blockchain,67.61,🟡 Good match
+861,Blockchain,54.54,🔴 Needs improvement
+862,Blockchain,64.29,🟡 Good match
+863,Blockchain,67.83,🟡 Good match
+864,Blockchain,59.57,🔴 Needs improvement
+865,Blockchain,67.61,🟡 Good match
+866,Blockchain,54.54,🔴 Needs improvement
+867,Blockchain,64.29,🟡 Good match
+868,Blockchain,67.83,🟡 Good match
+869,Blockchain,59.57,🔴 Needs improvement
+870,Blockchain,67.61,🟡 Good match
+871,Blockchain,54.54,🔴 Needs improvement
+872,Blockchain,64.29,🟡 Good match
+873,Blockchain,67.83,🟡 Good match
+874,Blockchain,59.57,🔴 Needs improvement
+875,Blockchain,67.61,🟡 Good match
+876,Blockchain,54.54,🔴 Needs improvement
+877,Blockchain,64.29,🟡 Good match
+878,Blockchain,67.83,🟡 Good match
+879,Blockchain,59.57,🔴 Needs improvement
+880,Blockchain,67.61,🟡 Good match
+881,Blockchain,54.54,🔴 Needs improvement
+882,Blockchain,64.29,🟡 Good match
+883,Blockchain,67.83,🟡 Good match
+884,Blockchain,59.57,🔴 Needs improvement
+885,Blockchain,67.61,🟡 Good match
+886,Blockchain,54.54,🔴 Needs improvement
+887,Blockchain,64.29,🟡 Good match
+888,Blockchain,67.83,🟡 Good match
+889,Blockchain,59.57,🔴 Needs improvement
+890,Blockchain,67.61,🟡 Good match
+891,Blockchain,54.54,🔴 Needs improvement
+892,Testing,54.49,🔴 Needs improvement
+893,Testing,54.31,🔴 Needs improvement
+894,Testing,46.51,🔴 Needs improvement
+895,Testing,58.79,🔴 Needs improvement
+896,Testing,55.22,🔴 Needs improvement
+897,Testing,44,🔴 Needs improvement
+898,Testing,53.79,🔴 Needs improvement
+899,Testing,54.49,🔴 Needs improvement
+900,Testing,54.31,🔴 Needs improvement
+901,Testing,46.51,🔴 Needs improvement
+902,Testing,58.79,🔴 Needs improvement
+903,Testing,55.22,🔴 Needs improvement
+904,Testing,44,🔴 Needs improvement
+905,Testing,53.79,🔴 Needs improvement
+906,Testing,54.49,🔴 Needs improvement
+907,Testing,54.31,🔴 Needs improvement
+908,Testing,46.51,🔴 Needs improvement
+909,Testing,58.79,🔴 Needs improvement
+910,Testing,55.22,🔴 Needs improvement
+911,Testing,44,🔴 Needs improvement
+912,Testing,53.79,🔴 Needs improvement
+913,Testing,54.49,🔴 Needs improvement
+914,Testing,54.31,🔴 Needs improvement
+915,Testing,46.51,🔴 Needs improvement
+916,Testing,58.79,🔴 Needs improvement
+917,Testing,55.22,🔴 Needs improvement
+918,Testing,44,🔴 Needs improvement
+919,Testing,53.79,🔴 Needs improvement
+920,Testing,54.49,🔴 Needs improvement
+921,Testing,54.31,🔴 Needs improvement
+922,Testing,46.51,🔴 Needs improvement
+923,Testing,58.79,🔴 Needs improvement
+924,Testing,55.22,🔴 Needs improvement
+925,Testing,44,🔴 Needs improvement
+926,Testing,53.79,🔴 Needs improvement
+927,Testing,54.49,🔴 Needs improvement
+928,Testing,54.31,🔴 Needs improvement
+929,Testing,46.51,🔴 Needs improvement
+930,Testing,58.79,🔴 Needs improvement
+931,Testing,55.22,🔴 Needs improvement
+932,Testing,44,🔴 Needs improvement
+933,Testing,53.79,🔴 Needs improvement
+934,Testing,54.49,🔴 Needs improvement
+935,Testing,54.31,🔴 Needs improvement
+936,Testing,46.51,🔴 Needs improvement
+937,Testing,58.79,🔴 Needs improvement
+938,Testing,55.22,🔴 Needs improvement
+939,Testing,44,🔴 Needs improvement
+940,Testing,53.79,🔴 Needs improvement
+941,Testing,54.49,🔴 Needs improvement
+942,Testing,54.31,🔴 Needs improvement
+943,Testing,46.51,🔴 Needs improvement
+944,Testing,58.79,🔴 Needs improvement
+945,Testing,55.22,🔴 Needs improvement
+946,Testing,44,🔴 Needs improvement
+947,Testing,53.79,🔴 Needs improvement
+948,Testing,54.49,🔴 Needs improvement
+949,Testing,54.31,🔴 Needs improvement
+950,Testing,46.51,🔴 Needs improvement
+951,Testing,58.79,🔴 Needs improvement
+952,Testing,55.22,🔴 Needs improvement
+953,Testing,44,🔴 Needs improvement
+954,Testing,53.79,🔴 Needs improvement
+955,Testing,54.49,🔴 Needs improvement
+956,Testing,54.31,🔴 Needs improvement
+957,Testing,46.51,🔴 Needs improvement
+958,Testing,58.79,🔴 Needs improvement
+959,Testing,55.22,🔴 Needs improvement
+960,Testing,44,🔴 Needs improvement
+961,Testing,53.79,🔴 Needs improvement

@@ -1,0 +1,177 @@
+import pandas as pd
+import re
+import numpy as np  # Added for centroid computation
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+import joblib
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv('resume_data.csv')
+print("Number of resumes per category:\n", df['Category'].value_counts())
+print("Dataset Shape:", df.shape)
+
+plt.figure(figsize=(10, 6))
+sns.countplot(y=df['Category'], order=df['Category'].value_counts().index)
+plt.title('Number of Resumes per Category')
+plt.xlabel('Count')
+plt.ylabel('Category')
+plt.tight_layout()
+plt.show()
+
+# Clean resume text
+def clean_resume(text):
+    text = re.sub(r'<[^>]+>', ' ', text)  # Remove HTML tags
+    text = re.sub(r'[^a-zA-Z]', ' ', text)  # Remove special characters & numbers
+    text = text.lower()  # Convert to lowercase
+    text = text.split()  # Split into words
+    return ' '.join(text)
+
+df['Cleaned_Resume'] = df['Resume'].apply(clean_resume)
+
+vectorizer = TfidfVectorizer(max_features=3000)  # Extract top 3000 keywords
+X = vectorizer.fit_transform(df['Cleaned_Resume']).toarray()
+y = df['Category']
+
+x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=42)
+
+# === New Code: Compute Centroids for Each Category ===
+centroids = {}
+for category in set(y_train):
+    # Get indices of resumes in this category
+    category_indices = np.where(y_train == category)[0]
+    # Extract their TF-IDF vectors
+    category_vectors = x_train[category_indices]
+    # Compute the mean vector (centroid)
+    centroid = np.mean(category_vectors, axis=0)
+    centroids[category] = centroid
+# Save centroids to a file
+joblib.dump(centroids, 'category_centroids.pkl')
+print("📦 Category centroids saved successfully!")
+
+model = MultinomialNB()
+model.fit(x_train, y_train)
+
+
+y_pred = model.predict(x_test)  # Ensure y_pred is defined
+cm = confusion_matrix(y_test, y_pred, labels=model.classes_)
+plt.figure(figsize=(12, 8))
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=model.classes_, yticklabels=model.classes_)
+plt.title('Confusion Matrix')
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.xticks(rotation=45, ha='right')
+plt.yticks(rotation=0)
+plt.tight_layout()
+plt.show()
+
+y_pred = model.predict(x_test)
+print("\n✅ Accuracy of Model:", accuracy_score(y_test, y_pred))
+print("📊 Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+report = classification_report(y_test, y_pred, output_dict=True)
+
+joblib.dump(model, 'ats_nb_model.pkl')
+joblib.dump(vectorizer, 'ats_vectorizer.pkl')
+print("\n📦 Model and vectorizer saved successfully!")
+
+report_summary = {label: round(metrics["f1-score"], 2) for label, metrics in report.items() if label in df['Category'].unique()}
+print("\n📊 Classification Report Summary:\n", report_summary)
+
+plt.figure(figsize=(10, 6))
+categories = list(report_summary.keys())
+f1_scores = list(report_summary.values())
+sns.barplot(x=f1_scores, y=categories)
+plt.title('F1-Score per Category')
+plt.xlabel('F1-Score')
+plt.ylabel('Category')
+plt.tight_layout()
+plt.show()
+
+# === Resume Category Prediction & Similarity Score ===
+from sklearn.metrics.pairwise import cosine_similarity
+
+# Function to clean and vectorize resume text
+def clean_and_vectorize_resume(resume_text):
+    cleaned = clean_resume(resume_text)  # Assuming your existing clean_resume() function is available
+    resume_vec = vectorizer.transform([cleaned]).toarray()
+    return resume_vec
+
+# Function to predict resume category and compute similarity score
+def predict_resume_category_and_score(resume_text):
+    resume_vec = clean_and_vectorize_resume(resume_text)
+    predicted_category = model.predict(resume_vec)[0]
+
+    # Load centroids (category-wise TF-IDF means)
+    import joblib
+    centroids = joblib.load('category_centroids.pkl')  # Ensure this file exists in your project
+
+    # Calculate cosine similarity between resume vector and the centroid of predicted category
+    centroid_vec = centroids[predicted_category].reshape(1, -1)
+    score = cosine_similarity(resume_vec, centroid_vec)[0][0] * 100  # Convert to percentage
+    return predicted_category, round(score, 2)
+
+
+
+# === Example usage ===
+sample_resume = df['Resume'][10]  # Replace with uploaded resume content if needed
+category, resume_score = predict_resume_category_and_score(sample_resume)
+
+print(f"📌 Resume Predicted Category: {category}")
+print(f"📈 Resume Similarity Score to Category Centroid: {resume_score}%")
+
+
+# this code is to find the analysed resumes at one place
+# # === Resume Analysis for All Resumes ===
+
+# Assuming your CSV is already loaded
+import pandas as pd
+
+# Load the CSV containing all resumes
+df = pd.read_csv('resume_data.csv')  # already done earlier
+
+# Define the function to label the score
+def score_label(score):
+    if score >= 80:
+        return "🟢 Excellent match"
+    elif score >= 60:
+        return "🟡 Good match"
+    else:
+        return "🔴 Needs improvement"
+
+# === List to store the results ===
+results = []
+
+# Loop through each resume
+for index, row in df.iterrows():
+    resume_text = row['Resume']  # Assuming 'Resume' column contains the text
+    
+    try:
+        # Predict category and score
+        predicted_category, resume_score = predict_resume_category_and_score(resume_text)
+
+        # Get the label based on the score
+        label = score_label(resume_score)
+
+        # Append the results
+        results.append({
+            'Row Index': index,
+            'Predicted Category': predicted_category,
+            'Similarity Score (%)': resume_score,
+            'Analysis': label
+        })
+
+        print(f"✅ Processed Row {index}")
+
+    except Exception as e:
+        print(f"⚠️ Error processing row {index}: {e}")
+
+# === Show the final analysis results ===
+results_df = pd.DataFrame(results)
+print("\n📋 Final Resume Analysis:")
+print(results_df)
+
+# Optional: Save the results to a CSV
+results_df.to_csv('resume_analysis_results.csv', index=False)
+print("\n💾 Results saved to 'resume_analysis_results.csv'!")
